@@ -1,0 +1,66 @@
+/* table.dataTable thead tr { background-color: green; } */
+ table.dataTable tbody tr.odd { background-color:  rgb(86, 81, 182);  }
+ table.dataTable tbody tr.even  { background-color: rgb(61, 59, 107);  }
+
+ th {
+  position: sticky;
+  background-color: rgb(32, 31, 54);
+  z-index: 2;
+  top: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "YY XX XX XX" "YY XX XX XX" "YY XX XX XX";
+}
+
+.XX { grid-area: XX; }
+
+.YY { grid-area: YY; }
+
+
+div.container {
+  min-width: 980px;
+  margin: 0 auto;
+}
+
+/* The scrollable part */
+
+.scrollable {
+  height: 400px;
+  overflow-y: scroll;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+.my_class{text-align:right; color:rgb(255, 251, 0)}
+
+
+
+
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+  }
+  
+  /* Left and right column */
+  .column.side {
+    width: 25%;
+  }
+  
+  /* Middle column */
+  .column.middle {
+    width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
