@@ -15,12 +15,12 @@ def getCountiesHospitals():
 def createRegionJSONs(grouped_regions):
 
     # C:\Users\Alex McKee\Documents\projects
-    grouped_regions.get_group('Asia').to_json(r'.\public\data\asiaData.json', orient='split')
-    grouped_regions.get_group('Africa').to_json(r'.\public\data\africaData.json', orient='split')
-    grouped_regions.get_group('Europe').to_json(r'.\public\data\europeData.json', orient='split')
-    grouped_regions.get_group('North America').to_json(r'.\public\data\NAData.json', orient='split')
-    grouped_regions.get_group('Australia/Oceania').to_json(r'.\public\data\oceaniaData.json', orient='split')
-    grouped_regions.get_group('South America').to_json(r'.\public\data\SAData.json', orient='split')
+    grouped_regions.get_group('Asia').to_json(r'./public/data/asiaData.json', orient='split')
+    grouped_regions.get_group('Africa').to_json(r'./public/data/africaData.json', orient='split')
+    grouped_regions.get_group('Europe').to_json(r'./public/data/europeData.json', orient='split')
+    grouped_regions.get_group('North America').to_json(r'./public/data/NAData.json', orient='split')
+    grouped_regions.get_group('Australia/Oceania').to_json(r'./public/data/oceaniaData.json', orient='split')
+    grouped_regions.get_group('South America').to_json(r'./public/data/SAData.json', orient='split')
 
 def preprocessNewCasesCol(dfWorldometer):
     newCases = dfWorldometer['New Cases'].str.replace('+', '')
@@ -52,14 +52,14 @@ def getWorldData():
     grouped_region = dfWorldometer.groupby('Continent')
     # grouped_region.drop(columns=['#']) - ERROR DataFrameGroupBy object has no attribute drop
     createRegionJSONs(grouped_region)
-    dfWorldometer.to_json(r'.\public\data\worldData.json', orient='split')
+    dfWorldometer.to_json(r'./public/data/worldData.json', orient='split')
 
 def getUSStates():
     url = "https://raw.githubusercontent.com/alexdmckee/corona-parser/master/casesUSAStates.csv"
     dfStates = pd.read_csv(url)
     dfStates['mortality rate'] = round((dfStates['Total Deaths'].str.replace(',', '').astype(float)) / (dfStates['Total Cases'].str.replace(',', '').astype(float)) * 100, 2)
     dfStates = dfStates.drop(columns=['Source', 'Projections'])
-    dfStates.to_json(r'.\public\data\statesData.json', orient='split')
+    dfStates.to_json(r'./public/data/statesData.json', orient='split')
 
 
 
