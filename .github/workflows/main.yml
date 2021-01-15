@@ -26,7 +26,11 @@ jobs:
         with:
           python-version: 3.8
       - uses: actions/cache@v1
-        
+      
+      # Install dependencies
+      - name: Install dependencies
+        run: pip install pandas
+          
       # Runs a single command using the runners shell
       - name: Run pandasDataProcessing.py
         run: python $GITHUB_WORKSPACE/pandasDataProcessing.py
