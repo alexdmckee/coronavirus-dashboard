@@ -1,7 +1,7 @@
 import csv
 import json
 import pandas as pd
-import matplotlib.pyplot as plot
+# import matplotlib.pyplot as plot
 
 def getCountiesHospitals():
     dfHospitalsWA = pd.read_html('https://en.wikipedia.org/wiki/List_of_hospitals_in_Washington_(state)')[0]
